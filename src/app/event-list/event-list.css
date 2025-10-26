@@ -1,0 +1,59 @@
+.event-table {
+  width: 85%;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.status-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.status-text {
+  font-weight: 600;
+  min-width: 90px;
+  text-transform: capitalize;
+}
+
+.status-accepted {
+  color: #2e7d32 !important;
+}
+
+.status-rejected {
+  color: #c62828 !important;
+}
+
+.status-pending {
+  color: #f9a825 !important;
+}
+
+
+.status-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.status-text { font-weight: 600; }
+
+.action-buttons { display: inline-flex; gap: 8px; white-space: nowrap; }
+.small-btn { font-size: 12px; padding: 2px 8px; height: 26px; line-height: 22px; }
+
+.mat-column-status { width: 240px; } 
+.mat-column-budget { width: 120px; }
+
+
+.accept-btn {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.reject-btn {
+  background-color: #e53935 !important;
+  color: white !important;
+}

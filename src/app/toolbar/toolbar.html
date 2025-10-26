@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="app-toolbar">
+  <span class="app-title">Event Management Portal</span>
+
+  <div class="nav-links">
+    <button mat-button routerLink="/form">New Request</button>
+    <button mat-button routerLink="/events">Events</button>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="role-container">
+    <mat-select
+      [(value)]="selectedRole"
+      (selectionChange)="onRoleChange($event.value)"
+      class="role-select"
+    >
+      <mat-option *ngFor="let role of roles" [value]="role.value">
+        {{ role.label }}
+      </mat-option>
+    </mat-select>
+  </div>
+</mat-toolbar>
+
+<!-- Main page content area -->
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>

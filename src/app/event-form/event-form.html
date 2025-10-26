@@ -1,1 +1,53 @@
-<p>event-form works!</p>
+<div class="event-form-container">
+  <h2 class="title">Request for Event Planning</h2>
+
+  <form (ngSubmit)="onSubmit()" class="event-form">
+    <p class="note">(For registered clients)</p>
+
+    <div class="form-row horizontal">
+      <label>Record number</label>
+      <input matInput type="text" [(ngModel)]="event.recordID" name="recordNumber" />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Client name</label>
+      <input matInput type="text" [(ngModel)]="event.name" name="name" required />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Event type</label>
+      <input matInput type="text" [(ngModel)]="event.type" name="type" />
+    </div>
+
+    <div class="form-row horizontal from-to">
+      <label>From:</label>
+      <input matInput type="date" [(ngModel)]="event.startDate" name="startDate" />
+
+      <label class="to-label">To:</label>
+      <input matInput type="date" [(ngModel)]="event.endDate" name="endDate" />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Expected number of attendees:</label>
+      <input matInput type="number" [(ngModel)]="event.attendees" name="attendees" />
+    </div>
+
+    <fieldset class="preferences-box">
+      <legend>Preferences</legend>
+      <div class="checkbox-grid">
+        <mat-checkbox [(ngModel)]="preferences.decorations" name="decorations">Decorations</mat-checkbox>
+        <!-- <mat-checkbox [(ngModel)]="preferences.meals" name="meals">Breakfast, lunch, dinner</mat-checkbox> -->
+        <!-- <mat-checkbox [(ngModel)]="preferences.parties" name="parties">Parties</mat-checkbox> -->
+        <mat-checkbox [(ngModel)]="preferences.drinks" name="drinks">Soft/hot drinks</mat-checkbox>
+        <mat-checkbox [(ngModel)]="preferences.photos" name="photos">Photos/filming</mat-checkbox>
+      </div>
+    </fieldset>
+
+    <div class="form-row horizontal">
+      <label>Expected budget:</label>
+      <input matInput type="number" [(ngModel)]="event.estimateBudget" name="estimateBudget" />
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit Request</button>
+  </form>
+</div>

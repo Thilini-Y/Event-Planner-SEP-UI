@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
+import { EventForm } from "./event-form/event-form";
 import { RouterOutlet } from '@angular/router';
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
