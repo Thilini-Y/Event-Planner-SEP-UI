@@ -1,0 +1,58 @@
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0482dd; /* deep maroon */
+  color: white;
+  padding: 0 24px;
+  height: 64px;
+}
+
+/* App title (left) */
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Center navigation links */
+.nav-links {
+  display: flex;
+  gap: 24px;
+  margin-left: 48px;
+}
+
+.nav-links button {
+  color: white !important;
+  font-weight: 500;
+}
+
+/* Right side role selector */
+.role-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.role-container mat-label {
+  color: white;
+  font-weight: 500;
+}
+
+.role-select {
+  background-color:  #5dcde9;
+  border-radius: 4px;
+  height: 36px;
+  min-width: 150px;
+  padding: 0 8px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Content area */
+.content {
+  padding: 24px;
+  background-color: #fafafa;
+}
