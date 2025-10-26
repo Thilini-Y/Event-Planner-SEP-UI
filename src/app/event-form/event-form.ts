@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-event-form',
   imports: [ 
@@ -17,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatButtonModule],
+    MatButtonModule, MatSnackBarModule],
   templateUrl: './event-form.html',
   styleUrl: './event-form.css',
 })
@@ -44,7 +45,7 @@ export class EventForm implements OnInit{
 
   events: Event[] = [];
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private snackBar: MatSnackBar ) {}
 
   ngOnInit(): void {
     this.loadEvents();
@@ -60,11 +61,13 @@ export class EventForm implements OnInit{
 
     this.eventService.createEvent(this.event).subscribe({
       next: (data) => {
-        alert('Event created successfully!');
+        this.showNotification('✅ Event created successfully!', 'success');
         this.loadEvents();
         this.resetForm();
       },
-      error: (err) => alert('Error creating event: ' + err.message)
+      error: (err) => {
+        this.showNotification('❌ Error creating event: ' + err.message, 'error');
+      },
     });
   }
 
@@ -76,7 +79,16 @@ export class EventForm implements OnInit{
   }
 
   resetForm(): void {
-    this.event = { recordID: '', name: '', type: '', location: '', description: '', estimateBudget: 0, status: 'PENDING' , attendees:0, startDate: null, endDate: null};
+    this.event = { recordID: '', name: '', type: '', location: '', description: '', estimateBudget: 0, status: 'PLANNED' , attendees:0, startDate: null, endDate: null};
     this.preferences = { decorations: false, food: false, drinks: false, photos: false };
   }
+
+  showNotification(message: string, type: 'success' | 'error'): void {
+  this.snackBar.open(message, 'Close', {
+    duration: 3000,
+    horizontalPosition: 'right',
+    verticalPosition: 'top',
+    panelClass: type === 'success' ? ['success-snackbar'] : ['error-snackbar']
+  });
+}
 }
