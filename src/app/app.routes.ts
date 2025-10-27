@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { EventForm } from './event-form/event-form';
 import { Toolbar } from './toolbar/toolbar';
 import { EventList } from './event-list/event-list';
+import { RecruitmentRequestForm } from './recruitment-request-form/recruitment-request-form';
+import { RecruitmentRequestList } from './recruitment-request-list/recruitment-request-list';
 
 export const routes: Routes = [
   {
@@ -10,7 +12,9 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'form', pathMatch: 'full' },
       { path: 'form', component: EventForm },
-      { path: 'events', component: EventList }
+      { path: 'events', component: EventList },
+      { path: 'recruitment', component: RecruitmentRequestForm },
+      { path: 'recruitment-list', component: RecruitmentRequestList }
     ]
   }
 ];
