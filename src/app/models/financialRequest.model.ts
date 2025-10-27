@@ -1,12 +1,17 @@
-export interface Event {
+export interface FinancialRequest {
     id? : number;
-    contractType: string;
-    requestingDepartment: string;
-    yearsOfExperience: Float32Array;
-    jobTitle: string;
-    jobDescription: string;
-    status: string;
-    hrNotes: string;
-    createdAt: Date | null;
-    updatedAt: Date | null;    
+    requestingDepartment: string; // PRODUCTION, SERVICES
+    projectReference: string; // ProjectID
+    requiredAmount: number;
+    reason: string;
+    status: FinancialStatus;
+    fmNotes?: string;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
   }
+
+export enum FinancialStatus {
+    PENDING = "PENDING",
+    APPROVED = "APPROVED",
+    REJECTED = "REJECTED"
+}

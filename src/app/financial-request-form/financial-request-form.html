@@ -1,0 +1,33 @@
+<div class="financial-form-container">
+  <h2 class="title">Financial Request</h2>
+
+  <form (ngSubmit)="onSubmit()" class="financial-form">
+    <p class="note">(For SM/PM - Submit financial requests to Financial Manager)</p>
+
+    <div class="form-row horizontal">
+      <label>Requesting Department</label>
+      <select matInput [(ngModel)]="financialRequest.requestingDepartment" name="requestingDepartment" required class="select-input">
+        <option value="" disabled>Select department</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{dept}}</option>
+      </select>
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Project Reference</label>
+      <input matInput type="text" [(ngModel)]="financialRequest.projectReference" name="projectReference" placeholder="Enter ProjectID" required />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Required Amount (SEK)</label>
+      <input matInput type="number" [(ngModel)]="financialRequest.requiredAmount" name="requiredAmount" min="0" step="0.01" required />
+    </div>
+
+    <div class="form-row">
+      <label class="textarea-label">Reason</label>
+      <textarea matInput [(ngModel)]="financialRequest.reason" name="reason" rows="4" class="textarea-input" required></textarea>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit Request to Financial Manager</button>
+  </form>
+</div>
+

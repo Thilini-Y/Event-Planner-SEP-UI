@@ -5,7 +5,7 @@
   text-decoration: underline;
 }
 
-.recruitment-list-container {
+.financial-list-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -52,17 +52,12 @@ tr:hover {
   cursor: pointer;
 }
 
-.status-open {
-  background-color: #e3f2fd;
-  color: #1976d2;
-}
-
-.status-in-progress {
+.status-pending {
   background-color: #fff3e0;
   color: #f57c00;
 }
 
-.status-closed {
+.status-approved {
   background-color: #e8f5e9;
   color: #388e3c;
 }
@@ -72,4 +67,22 @@ tr:hover {
   color: #c62828;
 }
 
+.action-button {
+  margin-right: 8px;
+}
+
+.action-button.approve {
+  background-color: #4caf50;
+  color: white;
+}
+
+.action-button.reject {
+  background-color: #f44336;
+  color: white;
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 

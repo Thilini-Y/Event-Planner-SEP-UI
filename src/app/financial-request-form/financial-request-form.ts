@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RecruitmentRequestService } from '../services/recruitmentRequest.service';
-import { RecruitmentRequest, RecruitmentStatus } from '../models/recruitmentRequest.model';
+import { FinancialRequestService } from '../services/financialRequest.service';
+import { FinancialRequest, FinancialStatus } from '../models/financialRequest.model';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-recruitment-request-form',
+  selector: 'app-financial-request-form',
   imports: [ 
     CommonModule,
     FormsModule,
@@ -22,24 +22,22 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule, 
     MatSnackBarModule
   ],
-  templateUrl: './recruitment-request-form.html',
-  styleUrl: './recruitment-request-form.css',
+  templateUrl: './financial-request-form.html',
+  styleUrl: './financial-request-form.css',
 })
-export class RecruitmentRequestForm implements OnInit {
-  recruitmentRequest: RecruitmentRequest = {
-    contractType: '',
+export class FinancialRequestForm implements OnInit {
+  financialRequest: FinancialRequest = {
     requestingDepartment: '',
-    yearsOfExperience: 0,
-    jobTitle: '',
-    jobDescription: '',
-    status: RecruitmentStatus.OPEN
+    projectReference: '',
+    requiredAmount: 0,
+    reason: '',
+    status: FinancialStatus.PENDING
   };
 
-  contractTypes: string[] = ['FULL_TIME', 'PART_TIME'];
   departments: string[] = ['PRODUCTION', 'SERVICES'];
 
   constructor(
-    private recruitmentRequestService: RecruitmentRequestService, 
+    private financialRequestService: FinancialRequestService, 
     private snackBar: MatSnackBar
   ) {}
 
@@ -48,25 +46,24 @@ export class RecruitmentRequestForm implements OnInit {
   }
 
   onSubmit(): void {
-    this.recruitmentRequestService.createRecruitmentRequest(this.recruitmentRequest).subscribe({
+    this.financialRequestService.createFinancialRequest(this.financialRequest).subscribe({
       next: (data) => {
-        this.showNotification('✅ Recruitment request submitted successfully!', 'success');
+        this.showNotification('✅ Financial request submitted successfully!', 'success');
         this.resetForm();
       },
       error: (err) => {
-        this.showNotification('❌ Error submitting recruitment request: ' + err.message, 'error');
+        this.showNotification('❌ Error submitting financial request: ' + err.message, 'error');
       },
     });
   }
 
   resetForm(): void {
-    this.recruitmentRequest = {
-      contractType: '',
+    this.financialRequest = {
       requestingDepartment: '',
-      yearsOfExperience: 0,
-      jobTitle: '',
-      jobDescription: '',
-      status: RecruitmentStatus.OPEN
+      projectReference: '',
+      requiredAmount: 0,
+      reason: '',
+      status: FinancialStatus.PENDING
     };
   }
 
@@ -79,5 +76,4 @@ export class RecruitmentRequestForm implements OnInit {
     });
   }
 }
-
 

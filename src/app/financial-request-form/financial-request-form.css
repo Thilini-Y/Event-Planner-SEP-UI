@@ -11,7 +11,7 @@
   margin-bottom: 15px;
 }
 
-.recruitment-form {
+.financial-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -63,7 +63,7 @@ button {
   margin-top: 10px;
 }
 
-.recruitment-form-container {
+.financial-form-container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -74,5 +74,4 @@ button {
   font-family: Arial, sans-serif;
   color: #222;
 }
-
 
