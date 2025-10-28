@@ -1,0 +1,78 @@
+.title {
+  text-align: center;
+  color: #800000;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.note {
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.recruitment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+label {
+  font-weight: bold;
+  min-width: 180px;
+}
+
+.form-row label.textarea-label {
+  min-width: auto;
+}
+
+input[matInput],
+select.select-input {
+  flex: 1;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+.textarea-input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.recruitment-form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px 30px;
+  border: 2px solid #a52a2a;
+  border-radius: 8px;
+  background-color: #fffdf9;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+

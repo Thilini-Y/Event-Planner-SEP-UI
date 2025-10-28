@@ -1,0 +1,77 @@
+<div class="financial-list-container">
+  <h2 class="title">Financial Request Management (Financial Manager View)</h2>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Project Reference Column -->
+      <ng-container matColumnDef="projectReference">
+        <th mat-header-cell *matHeaderCellDef>Project Reference</th>
+        <td mat-cell *matCellDef="let element">{{ element.projectReference }}</td>
+      </ng-container>
+
+      <!-- Department Column -->
+      <ng-container matColumnDef="requestingDepartment">
+        <th mat-header-cell *matHeaderCellDef>Department</th>
+        <td mat-cell *matCellDef="let element">{{ element.requestingDepartment }}</td>
+      </ng-container>
+
+      <!-- Required Amount Column -->
+      <ng-container matColumnDef="requiredAmount">
+        <th mat-header-cell *matHeaderCellDef>Required Amount</th>
+        <td mat-cell *matCellDef="let element">SEK {{ element.requiredAmount }}</td>
+      </ng-container>
+
+      <!-- Reason Column -->
+      <ng-container matColumnDef="reason">
+        <th mat-header-cell *matHeaderCellDef>Reason</th>
+        <td mat-cell *matCellDef="let element">{{ element.reason }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">
+          <select 
+            [(ngModel)]="element.status" 
+            (change)="onStatusChange($event)"
+            [class]="getStatusClass(element.status)"
+            class="status-select">
+            <option *ngFor="let status of statusOptions" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Quick Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="approveRequest(element)"
+            [disabled]="element.status === FinancialStatus.APPROVED || element.status === FinancialStatus.REJECTED"
+            matTooltip="Approve this request"
+            class="action-button approve">
+            Approve
+          </button>
+          <button 
+            mat-raised-button 
+            color="warn" 
+            (click)="rejectRequest(element)"
+            [disabled]="element.status === FinancialStatus.APPROVED || element.status === FinancialStatus.REJECTED"
+            matTooltip="Reject this request"
+            class="action-button reject">
+            Reject
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+

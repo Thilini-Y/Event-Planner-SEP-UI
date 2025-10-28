@@ -1,0 +1,42 @@
+<div class="recruitment-form-container">
+  <h2 class="title">Staff Recruitment Request</h2>
+
+  <form (ngSubmit)="onSubmit()" class="recruitment-form">
+    <p class="note">(For SM/PM - Submit recruitment requests to HR department)</p>
+
+    <div class="form-row horizontal">
+      <label>Contract Type</label>
+      <select matInput [(ngModel)]="recruitmentRequest.contractType" name="contractType" required class="select-input">
+        <option value="" disabled>Select contract type</option>
+        <option *ngFor="let type of contractTypes" [value]="type">{{type}}</option>
+      </select>
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Requesting Department</label>
+      <select matInput [(ngModel)]="recruitmentRequest.requestingDepartment" name="requestingDepartment" required class="select-input">
+        <option value="" disabled>Select department</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{dept}}</option>
+      </select>
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Years of Experience</label>
+      <input matInput type="number" [(ngModel)]="recruitmentRequest.yearsOfExperience" name="yearsOfExperience" min="0" required />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Job Title</label>
+      <input matInput type="text" [(ngModel)]="recruitmentRequest.jobTitle" name="jobTitle" required />
+    </div>
+
+    <div class="form-row">
+      <label class="textarea-label">Job Description</label>
+      <textarea matInput [(ngModel)]="recruitmentRequest.jobDescription" name="jobDescription" rows="4" class="textarea-input" required></textarea>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit Request to HR</button>
+  </form>
+</div>
+
+

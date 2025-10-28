@@ -1,0 +1,66 @@
+<div class="recruitment-list-container">
+  <h2 class="title">Staff Recruitment Management (HR View)</h2>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Job Title Column -->
+      <ng-container matColumnDef="jobTitle">
+        <th mat-header-cell *matHeaderCellDef>Job Title</th>
+        <td mat-cell *matCellDef="let element">{{ element.jobTitle }}</td>
+      </ng-container>
+
+      <!-- Department Column -->
+      <ng-container matColumnDef="requestingDepartment">
+        <th mat-header-cell *matHeaderCellDef>Department</th>
+        <td mat-cell *matCellDef="let element">{{ element.requestingDepartment }}</td>
+      </ng-container>
+
+      <!-- Contract Type Column -->
+      <ng-container matColumnDef="contractType">
+        <th mat-header-cell *matHeaderCellDef>Contract Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.contractType }}</td>
+      </ng-container>
+
+      <!-- Experience Column -->
+      <ng-container matColumnDef="yearsOfExperience">
+        <th mat-header-cell *matHeaderCellDef>Years Exp.</th>
+        <td mat-cell *matCellDef="let element">{{ element.yearsOfExperience }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">
+          <select 
+            [(ngModel)]="element.status" 
+            (change)="updateStatus(element, $any($event.target).value)"
+            [class]="getStatusClass(element.status)"
+            class="status-select">
+            <option *ngFor="let status of statusOptions" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button 
+            mat-icon-button 
+            (click)="showNotification('📄 Job Description: ' + element.jobDescription, 'success')"
+            matTooltip="View Job Description"
+            title="View Job Description">
+            <mat-icon>description</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+
