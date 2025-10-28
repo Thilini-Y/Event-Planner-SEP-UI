@@ -10,4 +10,8 @@ export interface Event {
   attendees: number;
   estimateBudget: number;
   status: string;
+  budget?: Budget;
+
+  isEditingBudget?: boolean;
+  tempBudget?: number;
 }

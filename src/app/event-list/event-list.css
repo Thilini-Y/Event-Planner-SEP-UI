@@ -21,9 +21,11 @@
 }
 
 .status-accepted {
+  color: #1419c1 !important;
+}
+.status-approved {
   color: #2e7d32 !important;
 }
-
 .status-rejected {
   color: #c62828 !important;
 }

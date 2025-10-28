@@ -1,0 +1,60 @@
+<h2 mat-dialog-title class="dialog-title">
+  💰 Add Budget for {{ data.eventName }}
+</h2>
+
+<div mat-dialog-content class="dialog-content">
+  <div
+    class="budget-item"
+    *ngFor="let item of items; let i = index"
+  >
+    <mat-form-field appearance="outline" class="budget-field">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        [(ngModel)]="item.description"
+        placeholder="e.g., Venue Rent"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="budget-field amount">
+      <mat-label>Amount (LKR)</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="item.amount"
+        placeholder="10000"
+      />
+    </mat-form-field>
+
+    <button
+      mat-icon-button
+      color="warn"
+      (click)="removeItem(i)"
+      *ngIf="items.length > 1"
+      aria-label="Remove item"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <button
+    mat-stroked-button
+    color="accent"
+    class="add-item-btn"
+    (click)="addItem()"
+  >
+    <mat-icon>add</mat-icon> Add Another Item
+  </button>
+</div>
+
+<div mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="save()"
+    [disabled]="!items.length"
+  >
+    <mat-icon>save</mat-icon> Save Budget
+  </button>
+</div>
