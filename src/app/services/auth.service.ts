@@ -118,7 +118,8 @@ export class AuthService {
   }
 
   canChangeTaskStatus(): boolean {
-    return this.hasRole(UserRole.PM, UserRole.SM);
+    // Allow Product/Service managers and subteam members (Food/Music providers) to change task status
+    return this.hasRole(UserRole.PM, UserRole.SM, UserRole.FOOD_PROVIDER, UserRole.MUSIC_PROVIDER);
   }
 
   canEditTaskComments(): boolean {

@@ -200,7 +200,8 @@ export class TaskList implements OnInit {
   }
 
   canChangeStatus(): boolean {
-    return this.isManager();
+    // Allow managers (PM/SM) and subteam members (Food/Music providers) to change status
+    return this.isManager() || this.isSubteamMember();
   }
 
   canEditComments(): boolean {
