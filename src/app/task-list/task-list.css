@@ -177,6 +177,6 @@ tr:hover {
 }
 
 /* Hide the actions column from display while keeping logic intact */
-.mat-column-actions {
+/* .mat-column-actions {
   display: none !important;
-}
+} */

@@ -9,6 +9,7 @@ import { FinancialRequestList } from './financial-request-list/financial-request
 import { CreateTaskComponent } from './create-task/create-task';
 import { TaskList } from './task-list/task-list';
 import { LoginComponent } from './login/login';
+import { HomeComponent } from './home/home';
 
 export const routes: Routes = [
   {
@@ -19,7 +20,8 @@ export const routes: Routes = [
     path: '',
     component: Toolbar,
     children: [
-      { path: '', redirectTo: 'form', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
       { path: 'form', component: EventForm },
       { path: 'events', component: EventList },
       { path: 'recruitment', component: RecruitmentRequestForm },
