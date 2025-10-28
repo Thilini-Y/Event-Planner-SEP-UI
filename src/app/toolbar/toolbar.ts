@@ -22,6 +22,8 @@ export class Toolbar {
     { value: UserRole.FINANCIAL_MANAGER, label: 'Financial Manager'},
     { value: UserRole.HR_MANAGER, label: 'HR Manager'}, 
     { value: UserRole.EMPLOYEE, label: 'Employee'}
+    { value: UserRole.PRODUCT_MANAGER, label: 'Product Manager' },
+    { value: UserRole.SERVICE_MANAGER, label: 'Service Manager' }
   ];
   selectedRole!: UserRole;
   constructor(private authService: AuthService) {}

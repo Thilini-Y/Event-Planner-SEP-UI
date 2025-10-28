@@ -5,5 +5,7 @@ export enum UserRole {
   PROJECT_MANAGER = 'Project Manager',
   FINANCIAL_MANAGER = 'Financial Manager',
   HR_MANAGER = 'HR Manager',
-  EMPLOYEE = 'Employee'
+  EMPLOYEE = 'Employee',
+  PRODUCT_MANAGER = 'Product Manager',
+  SERVICE_MANAGER = 'Service Manager'
 }
