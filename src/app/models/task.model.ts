@@ -1,31 +1,26 @@
 export interface Task {
   id?: number;
-  // eventId is a numeric identifier that maps to a Long on the backend
-  eventId: number;
+  eventId?: number;
   projectReference: string;
   description: string;
   assignee: string;
   subteam: string;
-  comments: string;
-  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
-  status: string;
-}
-
-export enum TaskPriority {
-  LOW = 'LOW',
-  MEDIUM = 'MEDIUM',
-  HIGH = 'HIGH',
-  CRITICAL = 'CRITICAL'
+  comments?: string;
+  priority: TaskPriority;
+  status: TaskStatus;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }
 
 export enum TaskStatus {
-  CREATED = 'CREATED',
-  IN_PROGRESS = 'IN_PROGRESS',
-  COMPLETED = 'COMPLETED',
-  CANCELLED = 'CANCELLED'
+  IN_PROGRESS = "IN_PROGRESS",
+  CREATED = "CREATED",
+  NEEDS_MANAGER_REVIEW = "NEEDS_MANAGER_REVIEW"
 }
 
-export enum Subteam {
-  FOOD = 'Food',
-  MUSIC = 'Music'
+export enum TaskPriority {
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  HIGH = "HIGH",
+  CRITICAL = "CRITICAL"
 }

@@ -1,0 +1,182 @@
+.title {
+  text-align: center;
+  color: #800000;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.task-list-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 25px 30px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12),
+              0 5px 5px -3px rgba(0, 0, 0, 0.3);
+}
+
+th {
+  background-color: #a52a2a;
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.status-select {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.status-display {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+}
+
+.priority-display {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.read-only-message {
+  color: #666;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.status-in-progress {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-created {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-needs-review {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.priority-low {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.priority-medium {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.priority-high {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.priority-critical {
+  background-color: #fce4ec;
+  color: #c2185b;
+  font-weight: bold;
+}
+
+.action-button {
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.action-button.edit-comments {
+  background-color: #ff9800;
+  color: white;
+}
+
+.action-button.save {
+  background-color: #4caf50;
+  color: white;
+}
+
+.action-button.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.no-comments {
+  color: #999;
+  font-style: italic;
+}
+
+.comments-edit {
+  width: 100%;
+}
+
+.comments-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.comment-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.subteam-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Info notification styling */
+::ng-deep .info-snackbar {
+  background-color: #2196f3 !important;
+  color: white !important;
+}
+
+/* Hide the actions column from display while keeping logic intact */
+.mat-column-actions {
+  display: none !important;
+}
