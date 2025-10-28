@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitmentRequestService } from '../services/recruitmentRequest.service';
 import { RecruitmentRequest, RecruitmentStatus } from '../models/recruitmentRequest.model';
+import { AuthService } from '../services/auth.service';
+import { UserRole } from '../models/roles';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -40,13 +42,16 @@ export class RecruitmentRequestList implements OnInit {
   dataSource: RecruitmentRequest[] = [];
   recruitmentRequests: RecruitmentRequest[] = [];
   statusOptions = Object.values(RecruitmentStatus);
+  currentUserRole!: UserRole;
 
   constructor(
     private recruitmentRequestService: RecruitmentRequestService,
+    private authService: AuthService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
+    this.currentUserRole = this.authService.getRole();
     this.loadRecruitmentRequests();
   }
 
@@ -75,6 +80,14 @@ export class RecruitmentRequestList implements OnInit {
         }
       });
     }
+  }
+
+  canChangeStatus(): boolean {
+    return this.authService.canChangeRecruitmentStatus();
+  }
+
+  canViewList(): boolean {
+    return this.authService.canViewRecruitmentList();
   }
 
   showNotification(message: string, type: 'success' | 'error'): void {

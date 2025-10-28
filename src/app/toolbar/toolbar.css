@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0482dd; /* deep maroon */
+  background-color: #0482dd;
   color: white;
   padding: 0 24px;
   height: 64px;
@@ -27,7 +27,14 @@
   font-weight: 500;
 }
 
-/* Right side role selector */
+/* User controls on the right */
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Role selector */
 .role-container {
   display: flex;
   align-items: center;
@@ -40,11 +47,23 @@
 }
 
 .role-select {
-  background-color:  #5dcde9;
+  background-color: #5dcde9;
   border-radius: 4px;
   height: 36px;
   min-width: 150px;
   padding: 0 8px;
+}
+
+/* Logout button */
+.logout-button {
+  color: white !important;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .spacer {
@@ -52,7 +71,31 @@
 }
 
 /* Content area */
-.content {
+.content-container {
   padding: 24px;
   background-color: #fafafa;
+  min-height: calc(100vh - 64px);
+}
+
+/* Login prompt */
+.login-prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+  background-color: #fafafa;
+}
+
+.login-message {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-message h2 {
+  color: #333;
+  margin-bottom: 24px;
+  font-weight: 500;
 }

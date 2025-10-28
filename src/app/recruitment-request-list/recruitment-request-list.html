@@ -33,6 +33,7 @@
         <th mat-header-cell *matHeaderCellDef>Status</th>
         <td mat-cell *matCellDef="let element">
           <select 
+            *ngIf="canChangeStatus()"
             [(ngModel)]="element.status" 
             (change)="updateStatus(element, $any($event.target).value)"
             [class]="getStatusClass(element.status)"
@@ -41,6 +42,12 @@
               {{ status }}
             </option>
           </select>
+          <span 
+            *ngIf="!canChangeStatus()"
+            [class]="getStatusClass(element.status)"
+            class="status-display">
+            {{ element.status }}
+          </span>
         </td>
       </ng-container>
 

@@ -7,8 +7,13 @@ import { RecruitmentRequestList } from './recruitment-request-list/recruitment-r
 import { FinancialRequestForm } from './financial-request-form/financial-request-form';
 import { FinancialRequestList } from './financial-request-list/financial-request-list';
 import { CreateTaskComponent } from './create-task/create-task';
+import { LoginComponent } from './login/login';
 
 export const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '',
     component: Toolbar,

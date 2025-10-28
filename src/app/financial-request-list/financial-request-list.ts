@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FinancialRequestService } from '../services/financialRequest.service';
 import { FinancialRequest, FinancialStatus } from '../models/financialRequest.model';
+import { AuthService } from '../services/auth.service';
+import { UserRole } from '../models/roles';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -43,13 +45,16 @@ export class FinancialRequestList implements OnInit {
   dataSource: FinancialRequest[] = [];
   financialRequests: FinancialRequest[] = [];
   statusOptions = Object.values(FinancialStatus);
+  currentUserRole!: UserRole;
 
   constructor(
     private financialRequestService: FinancialRequestService,
+    private authService: AuthService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
+    this.currentUserRole = this.authService.getRole();
     this.loadFinancialRequests();
   }
 
@@ -106,6 +111,14 @@ export class FinancialRequestList implements OnInit {
     if (element.id) {
       this.updateStatus(element, FinancialStatus.REJECTED);
     }
+  }
+
+  canChangeStatus(): boolean {
+    return this.authService.canChangeFinancialStatus();
+  }
+
+  canViewList(): boolean {
+    return this.authService.canViewFinancialList();
   }
 
   showNotification(message: string, type: 'success' | 'error'): void {
