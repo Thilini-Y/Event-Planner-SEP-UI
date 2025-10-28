@@ -1,0 +1,42 @@
+.tasks-container {
+  padding: 20px;
+}
+
+.tasks-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tasks-content {
+  padding: 20px 0;
+}
+
+.task-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.task-section {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.task-section h3 {
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.task-section p {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .task-sections {
+    grid-template-columns: 1fr;
+  }
+}

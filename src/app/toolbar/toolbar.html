@@ -1,31 +1,45 @@
 <mat-toolbar color="primary" class="app-toolbar">
   <span class="app-title">Event Management Portal</span>
 
-  <div class="nav-links">
-    <button mat-button routerLink="/form">Event Request</button>
-    <button mat-button routerLink="/events">Events</button>
-    <button mat-button routerLink="/recruitment">Recruitment Request</button>
-    <button mat-button routerLink="/recruitment-list">Recruitment List</button>
-    <button mat-button routerLink="/financial-request">Financial Request</button>
-    <button mat-button routerLink="/financial-list">Financial List</button>
+  <div class="nav-links" *ngIf="isLoggedIn">
+    <!-- Events - CSO, SCSO, AM -->
+    <button mat-button routerLink="/form" *ngIf="canAccessEvents()">Event Request</button>
+    <button mat-button routerLink="/events" *ngIf="canAccessEvents()">Events</button>
+    
+    <!-- Recruitment - HR, PM, SM -->
+    <button mat-button routerLink="/recruitment" *ngIf="canAccessRecruitment()">Recruitment Request</button>
+    <button mat-button routerLink="/recruitment-list" *ngIf="canAccessRecruitment()">Recruitment List</button>
+    
+    <!-- Financial - PM, SM, FM -->
+    <button mat-button routerLink="/financial-request" *ngIf="canAccessFinancial()">Financial Request</button>
+    <button mat-button routerLink="/financial-list" *ngIf="canAccessFinancial()">Financial List</button>
+    
+    <!-- Tasks - PM, SM -->
+    <button mat-button routerLink="/tasks" *ngIf="canAccessTasks()">Tasks</button>
   </div>
 
   <span class="spacer"></span>
 
-  <div class="role-container">
-    <mat-select
-      [(value)]="selectedRole"
-      (selectionChange)="onRoleChange($event.value)"
-      class="role-select"
-    >
-      <mat-option *ngFor="let role of roles" [value]="role.value">
-        {{ role.label }}
-      </mat-option>
-    </mat-select>
+  <div class="user-controls" *ngIf="isLoggedIn">
+    <div class="role-container">
+      <span class="current-role">{{ getRoleLabel(selectedRole) }}</span>
+    </div>
+    
+    <button mat-button (click)="logout()" class="logout-button">
+      Logout
+    </button>
   </div>
 </mat-toolbar>
 
 <!-- Main page content area -->
-<div class="content-container">
+<div class="content-container" *ngIf="isLoggedIn">
   <router-outlet></router-outlet>
+</div>
+
+<!-- Login prompt if not logged in -->
+<div class="login-prompt" *ngIf="!isLoggedIn">
+  <div class="login-message">
+    <h2>Please log in to access the Event Management Portal</h2>
+    <button mat-raised-button color="primary" routerLink="/login">Go to Login</button>
+  </div>
 </div>

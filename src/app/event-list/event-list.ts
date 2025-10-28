@@ -30,7 +30,7 @@ export class EventList {
   }
 
   canApprove(): boolean {
-    return this.authService.hasRole(UserRole.SENIOR_CUSTOM_OFFICER, UserRole.ADMIN);
+    return this.authService.hasRole(UserRole.SCSO, UserRole.AM);
   }
 
  onAccept(event: Event): void {

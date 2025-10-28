@@ -6,8 +6,14 @@ import { RecruitmentRequestForm } from './recruitment-request-form/recruitment-r
 import { RecruitmentRequestList } from './recruitment-request-list/recruitment-request-list';
 import { FinancialRequestForm } from './financial-request-form/financial-request-form';
 import { FinancialRequestList } from './financial-request-list/financial-request-list';
+import { LoginComponent } from './login/login';
+import { TasksComponent } from './tasks/tasks';
 
 export const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '',
     component: Toolbar,
@@ -18,7 +24,8 @@ export const routes: Routes = [
       { path: 'recruitment', component: RecruitmentRequestForm },
       { path: 'recruitment-list', component: RecruitmentRequestList },
       { path: 'financial-request', component: FinancialRequestForm },
-      { path: 'financial-list', component: FinancialRequestList }
+      { path: 'financial-list', component: FinancialRequestList },
+      { path: 'tasks', component: TasksComponent }
     ]
   }
 ];
