@@ -56,7 +56,7 @@ export class CreateTaskComponent implements OnInit {
     { value: 'Julia', label: 'Julia' }
   ];
 
-  currentUserRole: UserRole = UserRole.CUSTOM_OFFICER;
+  currentUserRole: UserRole = UserRole.CO;
 
   constructor(
     private taskService: TaskService, 
@@ -70,9 +70,9 @@ export class CreateTaskComponent implements OnInit {
   }
 
   setDefaultValues(): void {
-    if (this.currentUserRole === UserRole.PRODUCT_MANAGER) {
+    if (this.currentUserRole === UserRole.PM) {
       this.task.subteam = Subteam.FOOD;
-    } else if (this.currentUserRole === UserRole.SERVICE_MANAGER) {
+    } else if (this.currentUserRole === UserRole.SM) {
       this.task.subteam = Subteam.MUSIC;
     }
     this.task.status = TaskStatus.CREATED;
@@ -80,9 +80,9 @@ export class CreateTaskComponent implements OnInit {
   }
 
   get assigneeOptions() {
-    if (this.currentUserRole === UserRole.PRODUCT_MANAGER) {
+    if (this.currentUserRole === UserRole.PM) {
       return this.productManagerAssignees;
-    } else if (this.currentUserRole === UserRole.SERVICE_MANAGER) {
+    } else if (this.currentUserRole === UserRole.SM) {
       return this.serviceManagerAssignees;
     }
     return [];

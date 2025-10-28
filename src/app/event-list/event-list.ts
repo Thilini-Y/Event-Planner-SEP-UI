@@ -36,17 +36,17 @@ export class EventList {
   }
 
   canAccept(): boolean {
-    return this.authService.hasRole(UserRole.SENIOR_CUSTOM_OFFICER);
+    return this.authService.hasRole(UserRole.SCO);
   }
   canApprove(): boolean {
-    return this.authService.hasRole(UserRole.ADMINISTRATION_MANAGER);
+    return this.authService.hasRole(UserRole.AM);
   }
 
   isFinanceManager(): boolean {
-    return this.authService.hasRole(UserRole.FINANCIAL_MANAGER);
+    return this.authService.hasRole(UserRole.FM);
   }
   isSeniorManager(): boolean {
-      return this.authService.hasRole(UserRole.SENIOR_CUSTOM_OFFICER);
+      return this.authService.hasRole(UserRole.SCO);
   }
 
  onAccept(event: Event): void {

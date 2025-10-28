@@ -52,6 +52,22 @@ tr:hover {
   cursor: pointer;
 }
 
+.status-display {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+}
+
+.read-only-message {
+  color: #666;
+  font-style: italic;
+  font-size: 12px;
+}
+
 .status-pending {
   background-color: #fff3e0;
   color: #f57c00;
