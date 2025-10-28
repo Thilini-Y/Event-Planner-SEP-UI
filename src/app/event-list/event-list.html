@@ -26,6 +26,7 @@
       <td mat-cell *matCellDef="let e">
         <div class="status-wrap">
           <span class="status-text" [ngClass]="{
+            'status-approved': e.status === 'APPROVED',
             'status-accepted': e.status === 'ACCEPTED',
             'status-rejected': e.status === 'REJECTED',
             'status-pending':  e.status === 'PENDING'
@@ -33,26 +34,30 @@
             {{ e.status }}
           </span>
 
-          @if (canApprove() && e.status !== 'ACCEPTED' && e.status !== 'REJECTED') {
+           <!-- Approve/Reject (for Officers) -->
+          @if (canAccept() && e.status !== 'ACCEPTED' && e.status !== 'REJECTED' && e.status !== 'BUDGETED' && e.status !== 'APPROVED') {
             <span class="action-buttons">
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="onAccept(e)"
-                class="small-btn accept-btn"
-              >
-                Accept
-              </button>
-              <button
-                mat-raised-button
-                color="warn"
-                (click)="onReject(e)"
-                class="small-btn reject-btn"
-              >
-                Reject
-              </button>
+              <button mat-raised-button color="primary" (click)="onAccept(e)" class="small-btn accept-btn">Accept</button>
+              <button mat-raised-button color="warn" (click)="onReject(e)" class="small-btn reject-btn">Reject</button>
             </span>
           }
+
+          <!-- Finance Manager - Add Budget -->
+          @if (isFinanceManager() && (e.status === 'ACCEPTED' || e.status === 'BUDGETED')) {
+            <button  mat-raised-button color="primary"  class="small-btn accept-btn" (click)="handleBudgetClick(e)">
+                {{ e.budget?.items?.length ? 'View Budget' : 'Add Budget' }}
+            </button>
+          }
+            <!-- Approve/Reject (for Admin) -->
+          @if (canApprove() && ( e.status === 'BUDGETED')) {
+            <span class="action-buttons">
+              <button mat-raised-button color="primary" (click)="handleBudgetClick(e)" class="small-btn info-btn">View Budget</button>
+              <button mat-raised-button color="primary" (click)="onApprove(e)" class="small-btn accept-btn">Approve</button>
+              <button mat-raised-button color="warn" (click)="onReject(e)" class="small-btn reject-btn">Reject</button>
+
+            </span>
+          }
+
         </div>
       </td>
     </ng-container>

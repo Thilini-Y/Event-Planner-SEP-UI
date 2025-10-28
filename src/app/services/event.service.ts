@@ -21,4 +21,8 @@ export class EventService {
   updateEventStatus(id: number, status: string): Observable<Event> {
     return this.http.put<Event>(`${this.apiUrl}/${id}/status/${status}`, {});
   }
+
+   updateEventBudget(eventId: number, body: any): Observable<Event> {
+    return this.http.patch<Event>(`${this.apiUrl}/${eventId}`, body);
+  }
 }

@@ -113,3 +113,21 @@ button {
   font-family: Arial, sans-serif;
   color: #222;
 }
+
+
+.submit-btn {
+  background-color: #1976d2 !important; /* match toolbar blue */
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px 28px;
+  border-radius: 8px;
+  text-transform: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #125ca1 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}

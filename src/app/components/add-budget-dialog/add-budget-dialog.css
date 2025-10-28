@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Dialog title */
+.dialog-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #0d47a1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* Dialog content with base padding */
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ✅ Add margin only for inputs (Description + Amount) */
+.budget-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-left: 12px; /* ← Adds left margin for Description + Amount */
+}
+
+.budget-field {
+  flex: 1;
+}
+
+.amount {
+  max-width: 150px;
+}
+
+/* Align add-item button nicely with inputs */
+.add-item-btn {
+  align-self: flex-start;
+  margin-left: 12px; /* Same as input margin */
+  font-weight: 500;
+}
+
+.dialog-actions {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
