@@ -21,7 +21,9 @@ export class Toolbar implements OnInit {
     { value: UserRole.FM, label: 'FM (Financial Manager)' },
     { value: UserRole.PM, label: 'PM (Product Manager)' },
     { value: UserRole.SM, label: 'SM (Services Manager)' },
-    { value: UserRole.HR, label: 'HR' }
+    { value: UserRole.HR, label: 'HR' },
+    { value: UserRole.FOOD, label: 'Food' },
+    { value: UserRole.MUSIC, label: 'Music' }
   ];
   roles: { value: UserRole; label: string }[] = [];
   selectedRole!: UserRole;
@@ -110,5 +112,9 @@ export class Toolbar implements OnInit {
 
   canAccessTasks(): boolean {
     return this.authService.canAccessTasks();
+  }
+
+  canViewTasks(): boolean {
+    return this.authService.canViewTasks();
   }
 }

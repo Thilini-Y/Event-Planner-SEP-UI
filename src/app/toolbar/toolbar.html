@@ -14,8 +14,9 @@
     <button mat-button routerLink="/financial-request" *ngIf="canAccessFinancial()">Financial Request</button>
     <button mat-button routerLink="/financial-list" *ngIf="canAccessFinancialList()">Financial List</button>
     
-    <!-- Tasks - PM, SM -->
+    <!-- Tasks - PM, SM can create; PM, SM, Food, Music can view -->
     <button mat-button routerLink="/create-task" *ngIf="canAccessTasks()">Create Task</button>
+    <button mat-button routerLink="/task-list" *ngIf="canViewTasks()">View Tasks</button>
   </div>
 
   <span class="spacer"></span>

@@ -5,5 +5,7 @@ export enum UserRole {
   FM = 'FM',
   PM = 'PM',
   SM = 'SM',
-  HR = 'HR'
+  HR = 'HR',
+  FOOD = 'FOOD',
+  MUSIC = 'MUSIC'
 }

@@ -17,7 +17,27 @@ export class TaskService {
     return this.http.get<Task[]>(this.apiUrl);
   }
 
+  getTasksByStatus(status: string): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.apiUrl}/status/${status}`);
+  }
+
+  getTasksBySubteam(subteam: string): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.apiUrl}/subteam/${subteam}`);
+  }
+
   updateTaskStatus(id: number, status: string): Observable<Task> {
     return this.http.put<Task>(`${this.apiUrl}/${id}/status/${status}`, {});
+  }
+
+  updateTaskComments(id: number, comments: string): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${id}/comments/${comments}`, {});
+  }
+
+  updateTask(id: number, task: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${id}`, task);
+  }
+
+  getTaskById(id: number): Observable<Task> {
+    return this.http.get<Task>(`${this.apiUrl}/${id}`);
   }
 }

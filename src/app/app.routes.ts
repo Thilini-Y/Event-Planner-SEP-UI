@@ -7,6 +7,7 @@ import { RecruitmentRequestList } from './recruitment-request-list/recruitment-r
 import { FinancialRequestForm } from './financial-request-form/financial-request-form';
 import { FinancialRequestList } from './financial-request-list/financial-request-list';
 import { CreateTaskComponent } from './create-task/create-task';
+import { TaskList } from './task-list/task-list';
 import { LoginComponent } from './login/login';
 
 export const routes: Routes = [
@@ -25,7 +26,8 @@ export const routes: Routes = [
       { path: 'recruitment-list', component: RecruitmentRequestList },
       { path: 'financial-request', component: FinancialRequestForm },
       { path: 'financial-list', component: FinancialRequestList },
-      { path: 'create-task', component: CreateTaskComponent }
+      { path: 'create-task', component: CreateTaskComponent },
+      { path: 'task-list', component: TaskList }
     ]
   }
 ];

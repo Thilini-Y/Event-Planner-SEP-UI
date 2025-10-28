@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { AuthService } from '../services/auth.service';
-import { Task, TaskPriority, TaskStatus, Subteam } from '../models/task.model';
+import { Task, TaskPriority, TaskStatus } from '../models/task.model';
 import { UserRole } from '../models/roles';
 
 import { CommonModule } from '@angular/common';
@@ -71,9 +71,9 @@ export class CreateTaskComponent implements OnInit {
 
   setDefaultValues(): void {
     if (this.currentUserRole === UserRole.PM) {
-      this.task.subteam = Subteam.FOOD;
+      this.task.subteam = 'Food';
     } else if (this.currentUserRole === UserRole.SM) {
-      this.task.subteam = Subteam.MUSIC;
+      this.task.subteam = 'Music';
     }
     this.task.status = TaskStatus.CREATED;
     this.task.comments = '';
