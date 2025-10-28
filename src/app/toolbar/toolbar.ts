@@ -17,7 +17,9 @@ export class Toolbar {
   roles = [
     { value: UserRole.SENIOR_CUSTOM_OFFICER, label: 'Senior Custom Officer' },
     { value: UserRole.CUSTOM_OFFICER, label: 'Custom Officer' },
-    { value: UserRole.ADMIN, label: 'Admin' }
+    { value: UserRole.ADMIN, label: 'Admin' },
+    { value: UserRole.PRODUCT_MANAGER, label: 'Product Manager' },
+    { value: UserRole.SERVICE_MANAGER, label: 'Service Manager' }
   ];
   selectedRole!: UserRole;
   constructor(private authService: AuthService) {}

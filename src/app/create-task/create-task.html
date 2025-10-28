@@ -1,0 +1,49 @@
+<div class="task-form-container">
+  <h2 class="title">Create Task</h2>
+
+  <form (ngSubmit)="onSubmit()" class="task-form">
+    <div class="form-row horizontal">
+      <label>Event ID</label>
+      <!-- make Event ID look like the Project Reference field (plain input styled via CSS) -->
+      <input matInput type="number" step="1" name="eventId" [(ngModel)]="task.eventId" required />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Project Reference</label>
+      <input matInput type="text" [(ngModel)]="task.projectReference" name="projectReference" required />
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Description</label>
+      <textarea matInput [(ngModel)]="task.description" name="description" rows="3" required></textarea>
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Assignee</label>
+      <mat-form-field appearance="outline" style="flex:1">
+        <mat-select [(ngModel)]="task.assignee" name="assignee" required>
+          <mat-option *ngFor="let assignee of assigneeOptions" [value]="assignee.value">
+            {{ assignee.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row horizontal">
+      <label>Priority</label>
+      <mat-form-field appearance="outline" style="flex:1">
+        <mat-select [(ngModel)]="task.priority" name="priority" required>
+          <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+            {{ priority.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- keep subteam and status values but hide inputs from the user -->
+    <input type="hidden" [(ngModel)]="task.subteam" name="subteam" />
+    <input type="hidden" [(ngModel)]="task.status" name="status" />
+
+    <button mat-raised-button color="primary" type="submit">Create Task</button>
+  </form>
+</div>
