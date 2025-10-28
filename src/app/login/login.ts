@@ -51,10 +51,14 @@ export class LoginComponent {
         console.log('Login response:', response); // Debug log
         if (response.success) {
           this.authService.setRole(response.role);
+          // Store username for display
+          if (response.username) {
+            localStorage.setItem('userName', response.username);
+          }
           this.snackBar.open(`Login successful! Welcome ${response.username || response.role}`, 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         } else {
           this.snackBar.open('Login failed: ' + (response.message || 'Invalid credentials'), 'Close', {
             duration: 3000,

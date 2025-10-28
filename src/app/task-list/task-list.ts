@@ -184,7 +184,7 @@ export class TaskList implements OnInit {
   }
 
   isSubteamMember(): boolean {
-    return this.currentUserRole === UserRole.FOOD || this.currentUserRole === UserRole.MUSIC;
+    return this.currentUserRole === UserRole.FOOD_PROVIDER || this.currentUserRole === UserRole.MUSIC_PROVIDER;
   }
 
   getManagerSubteam(): string {
@@ -192,7 +192,7 @@ export class TaskList implements OnInit {
   }
 
   getSubteamMemberSubteam(): string {
-    return this.currentUserRole === UserRole.FOOD ? 'Food' : 'Music';
+    return this.currentUserRole === UserRole.FOOD_PROVIDER ? 'Food' : 'Music';
   }
 
   canViewTasks(): boolean {

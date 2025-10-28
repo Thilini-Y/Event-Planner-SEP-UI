@@ -114,7 +114,7 @@ export class AuthService {
   }
 
   canViewTasks(): boolean {
-    return this.hasRole(UserRole.PM, UserRole.SM, UserRole.FOOD, UserRole.MUSIC);
+    return this.hasRole(UserRole.PM, UserRole.SM, UserRole.FOOD_PROVIDER, UserRole.MUSIC_PROVIDER);
   }
 
   canChangeTaskStatus(): boolean {
@@ -122,6 +122,6 @@ export class AuthService {
   }
 
   canEditTaskComments(): boolean {
-    return this.hasRole(UserRole.FOOD, UserRole.MUSIC);
+    return this.hasRole(UserRole.FOOD_PROVIDER, UserRole.MUSIC_PROVIDER);
   }
 }

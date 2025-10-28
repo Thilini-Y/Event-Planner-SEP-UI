@@ -1,0 +1,35 @@
+<div class="home-container">
+  <div class="welcome-section">
+    <h1 class="welcome-title">{{ getWelcomeMessage() }}</h1>
+    <h2 class="role-title">{{ getRoleLabel(currentRole) }}</h2>
+    <p class="role-description">{{ getRoleDescription() }}</p>
+  </div>
+
+  <div class="quick-actions-section">
+    <h3 class="section-title">Quick Actions</h3>
+    <div class="actions-grid">
+      <mat-card 
+        *ngFor="let action of getQuickActions()" 
+        class="action-card"
+        (click)="navigateTo(action.route)">
+        <mat-card-content>
+          <div class="action-content">
+            <mat-icon class="action-icon">{{ action.icon }}</mat-icon>
+            <h4 class="action-title">{{ action.label }}</h4>
+            <p class="action-description">{{ action.description }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <mat-card class="info-card">
+      <mat-card-content>
+        <h3>System Information</h3>
+        <p>You are logged in as <strong>{{ getRoleLabel(currentRole) }}</strong></p>
+        <p>Use the navigation menu above to access different features, or click on the quick action cards below.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

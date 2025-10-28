@@ -19,11 +19,11 @@ export class Toolbar implements OnInit {
     { value: UserRole.SCO, label: 'SCO' },
     { value: UserRole.AM, label: 'AM (Admin)' },
     { value: UserRole.FM, label: 'FM (Financial Manager)' },
-    { value: UserRole.PM, label: 'PM (Product Manager)' },
-    { value: UserRole.SM, label: 'SM (Services Manager)' },
-    { value: UserRole.HR, label: 'HR' },
-    { value: UserRole.FOOD, label: 'Food' },
-    { value: UserRole.MUSIC, label: 'Music' }
+      { value: UserRole.PM, label: 'PM (Product Manager)' },
+      { value: UserRole.SM, label: 'SM (Services Manager)' },
+      { value: UserRole.HR, label: 'HR' },
+      { value: UserRole.FOOD_PROVIDER, label: 'Food Provider' },
+      { value: UserRole.MUSIC_PROVIDER, label: 'Music Provider' }
   ];
   roles: { value: UserRole; label: string }[] = [];
   selectedRole!: UserRole;

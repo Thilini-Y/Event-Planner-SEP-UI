@@ -6,6 +6,6 @@ export enum UserRole {
   PM = 'PM',
   SM = 'SM',
   HR = 'HR',
-  FOOD = 'FOOD',
-  MUSIC = 'MUSIC'
+  FOOD_PROVIDER = 'FOOD_PROVIDER',
+  MUSIC_PROVIDER = 'MUSIC_PROVIDER'
 }

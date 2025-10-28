@@ -2,6 +2,9 @@
   <span class="app-title">Event Management Portal</span>
 
   <div class="nav-links" *ngIf="isLoggedIn">
+    <!-- Home button for all users -->
+    <button mat-button routerLink="/home">Home</button>
+    
     <!-- Events - CO, SCO can request; CO, SCO, FM, AM can view list -->
     <button mat-button routerLink="/form" *ngIf="canAccessEventRequest()">Event Request</button>
     <button mat-button routerLink="/events" *ngIf="canAccessEventList()">Events</button>
