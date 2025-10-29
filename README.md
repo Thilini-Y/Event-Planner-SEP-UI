@@ -22,6 +22,28 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Configuration
+
+- API base path: the UI expects APIs under `/api/...` and uses the Angular dev-server proxy during development (see `proxy.conf.json`).
+- Port: UI runs on `http://localhost:4200/` in dev.
+
+## How to use (app overview)
+
+- **Login**: Access the app and authenticate via the `Login` page (`/login`).
+- **Home**: Landing page linking to key features.
+- **Events**:
+  - View events: `Events` list page.
+  - Create/edit events: `Create Event` form.
+- **Tasks**:
+  - Create tasks for an event via `Create Task`.
+  - View and update tasks in `Task List`.
+- **Budgets**:
+  - Add and review budget items via the `Add Budget` dialog and `View Budget`.
+- **Recruitment Requests**:
+  - Submit and track requests via `Recruitment Request` form/list.
+- **Financial Requests**:
+  - Submit and track requests via `Financial Request` form/list.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
